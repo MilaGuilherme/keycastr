@@ -56,11 +56,11 @@ static void _onSelectedKeyboardInputSourceChanged(CFNotificationCenterRef aCente
     BOOL _inputSourceChangeObserved;
 }
 
-static NSString* kCommandKeyString = @"\xe2\x8c\x98";
-static NSString* kOptionKeyString = @"\xe2\x8c\xa5";
-static NSString* kControlKeyString = @"\xe2\x8c\x83";
-static NSString* kShiftKeyString = @"\xe2\x87\xa7";
-static NSString* kLeftTabString = @"\xe2\x87\xa4";
+static NSString* kCommandKeyString = @"\xe2\x8c\x98 Cmd/Ctrl+";
+static NSString* kOptionKeyString = @"\xe2\x8c\xa5 Opt/Alt+";
+static NSString* kControlKeyString = @"\xe2\x8c\x83 Control+";
+static NSString* kShiftKeyString = @"\xe2\x87\xa7 Shift+";
+static NSString* kLeftTabString = @"\xe2\x87\xa4 Tab+";
 
 #define UTF8(x) [NSString stringWithUTF8String:x]
 
@@ -263,13 +263,13 @@ if ([event isKindOfClass:[KCMouseEvent class]]) {
 
     switch (event.type) {
         case NSEventTypeLeftMouseDown:
-            [mutableResponse appendString:@"LClick"];
+            [mutableResponse appendString:@"Left 🖱️"];
             break;
         case NSEventTypeRightMouseDown:
-            [mutableResponse appendString:@"RClick"];
+            [mutableResponse appendString:@"Right 🖱️"];
             break;
         case NSEventTypeOtherMouseDown:
-            [mutableResponse appendString:@"MClick"];
+            [mutableResponse appendString:@"Other 🖱️"];
             break;
         default:
             [mutableResponse appendString:@"🖱️"];
