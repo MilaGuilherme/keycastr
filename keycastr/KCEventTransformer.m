@@ -255,14 +255,28 @@ static NSString* kLeftTabString = @"\xe2\x87\xa4";
 		[mutableResponse appendString:kCommandKeyString];
 	}
 
-    if ([event isKindOfClass:[KCMouseEvent class]]) {
-        if (needsShiftGlyph) {
-            [mutableResponse appendString:kShiftKeyString];
-            needsShiftGlyph = NO;
-        }
-        [mutableResponse appendString:@"🖱️"];
-        return mutableResponse;
+if ([event isKindOfClass:[KCMouseEvent class]]) {
+    if (needsShiftGlyph) {
+        [mutableResponse appendString:kShiftKeyString];
+        needsShiftGlyph = NO;
     }
+
+    switch (event.type) {
+        case NSEventTypeLeftMouseDown:
+            [mutableResponse appendString:@"LClick"];
+            break;
+        case NSEventTypeRightMouseDown:
+            [mutableResponse appendString:@"RClick"];
+            break;
+        case NSEventTypeOtherMouseDown:
+            [mutableResponse appendString:@"MClick"];
+            break;
+        default:
+            [mutableResponse appendString:@"🖱️"];
+            break;
+    }
+    return mutableResponse;
+}
     
     KCKeystroke *keystroke = (KCKeystroke *)event;
 
