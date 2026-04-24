@@ -56,8 +56,8 @@ static void _onSelectedKeyboardInputSourceChanged(CFNotificationCenterRef aCente
     BOOL _inputSourceChangeObserved;
 }
 
-static NSString* kCommandKeyString = @"\xe2\x8c\x98 Cmd/Ctrl+";
-static NSString* kOptionKeyString = @"\xe2\x8c\xa5 Opt/Alt+";
+static NSString* kCommandKeyString = @"\xe2\x8c\x98/Ctrl+";
+static NSString* kOptionKeyString = @"\xe2\x8c\xa5/Alt+";
 static NSString* kControlKeyString = @"\xe2\x8c\x83 Control+";
 static NSString* kShiftKeyString = @"\xe2\x87\xa7 Shift+";
 static NSString* kLeftTabString = @"\xe2\x87\xa4 Tab+";
